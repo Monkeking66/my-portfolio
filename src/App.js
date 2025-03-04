@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Header from "./components/Header";
+import About from "./components/About";
+import ProjectCard from "./components/ProjectCard";
+import Contact from "./components/Contact";
+import "./App.css"; 
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Header />
+      <About />
+      <section className="projects">
+        <h2>Projects</h2>
+        <ProjectCard
+          title="Blog Platform"
+          description="Built with Node.js, Express.js, and EJS for dynamic content."
+          link="#"
+          image="https://via.placeholder.com/400"
+        />
+        <ProjectCard
+          title="Anime Discovery App"
+          description="Integrated AniList API to fetch and display trending anime."
+          link="#"
+          image="https://via.placeholder.com/400"
+        />
+      </section>
+      <Contact />
     </div>
   );
-}
+};
 
 export default App;
