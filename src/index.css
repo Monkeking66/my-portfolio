@@ -1,11 +1,61 @@
+/* index.css */
 html, body {
   height: 100%;
   margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
 }
 
 #root {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
+  height: 100%; /* Ensure the root div fills the entire page */
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative; /* Make sure container can hold absolute children like Vanta */
+  z-index: 2; /* Keep content above the background */
+}
+
+header, section {
+  background: white;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+  color: #333;
+}
+
+.project-card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+.project-card img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.project-card a {
+  color: blue;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.project-card a:hover {
+  text-decoration: underline;
+}
+
+.project-card {
+  display: block !important;
+  border: 2px solid black; /* Debugging border */
 }

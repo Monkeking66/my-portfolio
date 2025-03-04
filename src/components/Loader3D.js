@@ -11,7 +11,11 @@ const Loader3D = ({ onFinish }) => {
     const renderer = new THREE.WebGLRenderer({ alpha: true });
 
     renderer.setSize(window.innerWidth, window.innerHeight);
-    document.getElementById("loader-3d").appendChild(renderer.domElement);
+
+    const loaderElement = document.getElementById("loader-3d");
+    if (loaderElement) {
+      loaderElement.appendChild(renderer.domElement);
+    }
 
     const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
     const material = new THREE.MeshStandardMaterial({ color: 0xff6347, metalness: 0.7, roughness: 0.3 });
@@ -32,13 +36,20 @@ const Loader3D = ({ onFinish }) => {
     };
     animate();
 
+    let isMounted = true;
     setTimeout(() => {
-      setIsVisible(false);
-      if (onFinish) onFinish();
-    }, 3000); // Adjust time if needed
+      if (isMounted) {
+        setIsVisible(false);
+        if (onFinish) onFinish();
+      }
+    }, 3000);
 
     return () => {
-      document.getElementById("loader-3d")?.removeChild(renderer.domElement);
+      isMounted = false;
+      const loaderElement = document.getElementById("loader-3d");
+      if (loaderElement && loaderElement.firstChild) {
+        loaderElement.removeChild(loaderElement.firstChild);
+      }
     };
   }, [onFinish]);
 

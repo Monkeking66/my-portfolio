@@ -1,7 +1,8 @@
-// src/components/ProjectCard.js
 import React from "react";
 
 const ProjectCard = ({ title, description, link, image }) => {
+  console.log("Rendering ProjectCard:", { title, description, link, image });
+
   return (
     <div className="project-card">
       <img src={image} alt={title} />

@@ -4,6 +4,7 @@ import About from "./components/About";
 import ProjectCard from "./components/ProjectCard";
 import Contact from "./components/Contact";
 import Loader3D from "./components/Loader3D"; // Import 3D Loader
+import VantaBackground from "./components/VantaBackground"; // Import VantaBackground
 import "./App.css";
 
 const App = () => {
@@ -20,7 +21,10 @@ const App = () => {
       {isLoading ? (
         <Loader3D onFinish={() => setIsLoading(false)} />
       ) : (
-        <div className="container">
+        <div className="container" style={{ position: "relative", zIndex: 2 }}>
+          {/* Vanta Background */}
+          <VantaBackground />
+          
           <Header />
           <About />
           <section className="projects">
@@ -38,6 +42,7 @@ const App = () => {
               image="https://via.placeholder.com/400"
             />
           </section>
+
           <Contact />
         </div>
       )}
